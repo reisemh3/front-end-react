@@ -1,0 +1,125 @@
+.result-box {
+    font-family: monospace;
+    font-size: 24px;
+    background-color: var(--color-area);
+    color: var(--color-text);
+    flex-wrap: nowrap;
+    flex-direction: row;
+
+    @media (max-width: 800px) {
+        flex-direction: column;
+    }
+}
+
+.result {
+    padding: 30px;
+    height: 62px;
+    text-wrap: none;
+    flex-shrink: 10;
+    flex-grow: 0;
+    overflow: hidden;
+
+    @media (max-width: 800px) {
+        padding: 30px 8px;
+        text-overflow: clip;
+    }
+}
+
+.result-regex {
+    background-color: var(--color-regex-bg);
+}
+
+.result-action {
+    width: 196px;
+    padding: 22px 22px 10px 10px;
+    flex-grow: 1;
+}
+
+.auto-copy {
+    padding-left: 3px;
+    padding-bottom: 2px;
+    margin-top: auto;
+    position: relative;
+}
+
+.checkbox-autocopy {
+    margin-left: 0;
+    margin-right: 5px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.auto-copy-text {
+    font-size: 14px;
+    position: relative;
+    bottom: 4px;
+}
+
+.auto-copy-text:hover {
+    cursor: pointer;
+}
+
+.copied-good {
+    color: var(--color-text-copied);
+}
+
+.error {
+    color: var(--color-text-error);
+    padding-top: 10px;
+    font-size: 16px;
+}
+
+.label-error {
+    color: var(--color-text-error);
+}
+
+.label-warning {
+    color: var(--color-text-warn);
+}
+
+.warning {
+    color: var(--color-text-warn);
+    padding-top: 6px;
+    font-size: 16px;
+}
+
+.size-info {
+    color: #b1b1b7;
+    padding-top: 10px;
+    font-size: 16px;
+}
+
+.copy-button {
+    background-color: var(--color-correct);
+    font-family: monospace;
+    border: none;
+    color: white;
+    padding: 15px 12px;
+    width: 90px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 4px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.copy-button:disabled {
+    background-color: var(--color-disabled);
+}
+
+.reset-button {
+    width: 90px;
+    background-color: var(--color-deep-error);
+    font-family: monospace;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 4px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
