@@ -1,10 +1,17 @@
 /** @type {import('tailwindcss').Config} */
+
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
-  content: ["./src/**/*.{html,js,ts,jsx,tsx,vue}"],
+  content: [
+    "./src/**/*.{html,js,ts,jsx,tsx,vue}",
+    "./**.*.{html,js,ts,jsx,tsx,vue}"
+  ],
   theme: {
     fontFamily: {
+      sans: ['Inter var']
       display: ['Source Serif Pro', 'Georgia', 'serif'],
-      body: ['Synonym', 'system-ui', 'sans-serif'],
+      body: ['Synonym', 'system-ui', 'sans-serif, defaultTheme.fontFamily.sans'],
     },
     colors: {
       primary: {

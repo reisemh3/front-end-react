@@ -1,6 +1,8 @@
 // import logo from './../logo.svg';
 import './App.css';
 import Acceuil from "./../pages/accueil/Accueil";
+import Livres from "./../pages/livres/Livres";
+import Recherches from "./../pages/recherches/Recherches";
 
 import React, {useEffect, useState} from "react";
 import {Route, Routes} from "react-router-dom";
@@ -15,7 +17,8 @@ function App() {
       </div>
         <Routes>
           <Route path="/" element={<Acceuil key={"accueil-"} />} />
-          <Route path="/accueil" element={<Acceuil key={"accueil-"} />} />
+          <Route path="/livres" element={<Livres key={"livres-"} />} />
+          <Route path="/recherches" element={<Recherches key={"recherches-"} />} />
         </Routes>
     </>
   );
