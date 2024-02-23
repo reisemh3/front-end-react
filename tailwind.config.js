@@ -1,7 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-const defaultTheme = require('tailwindcss/defaultTheme')
-
 module.exports = {
   content: [
     "./src/**/*.{html,js,ts,jsx,tsx,vue}",
@@ -9,9 +7,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ['Inter var']
       display: ['Source Serif Pro', 'Georgia', 'serif'],
-      body: ['Synonym', 'system-ui', 'sans-serif, defaultTheme.fontFamily.sans'],
+      body: ['Synonym', 'system-ui', 'sans-serif'],
     },
     colors: {
       primary: {
