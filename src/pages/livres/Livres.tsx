@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, {Dispatch, SetStateAction, useContext, useEffect} from 'react';
 import './Livres.css';
 import './../../styles/pages.css';
@@ -5,8 +6,8 @@ import './../../styles/pages.css';
 
 const Livres = () => {
 
-  const [result, setResult] = React.useState("");
-  const [warning, setWarning] = React.useState<string | undefined>();
+  // const [result, setResult] = React.useState("");
+  // const [warning, setWarning] = React.useState<string | undefined>();
 
 
   useEffect(() => {
@@ -39,13 +40,13 @@ interface CheckboxProps {
   className?: string
 }
 
-interface LinkCheckboxProps {
-  label: string
-  link?: string
-  value: boolean
-  onChange: Dispatch<SetStateAction<boolean>>
-  className?: string
-}
+// interface LinkCheckboxProps {
+//   label: string
+//   link?: string
+//   value: boolean
+//   onChange: Dispatch<SetStateAction<boolean>>
+//   className?: string
+// }
 
 interface NumberInputProps {
   label: string
@@ -67,16 +68,16 @@ export const Checkbox = (props: CheckboxProps) => {
   );
 }
 
-const SocketCheckbox = (props: LinkCheckboxProps) => {
-  const els = props.link?.split("") ?? props.label.split("");
+// const SocketCheckbox = (props: LinkCheckboxProps) => {
+//   const els = props.link?.split("") ?? props.label.split("");
 
-  return (
-    <div className={props.className}>
-      <label className="checkbox">
-      </label>
-    </div>
-  );
-}
+//   return (
+//     <div className={props.className}>
+//       <label className="checkbox">
+//       </label>
+//     </div>
+//   );
+// }
 
 export const NumberInput = (props: NumberInputProps) => {
   return (
@@ -91,9 +92,9 @@ export const NumberInput = (props: NumberInputProps) => {
   );
 }
 
-function imgFromChar(c: string) {
-  switch (c) {
-  }
-}
+// function imgFromChar(c: string) {
+//   switch (c) {
+//   }
+// }
 
 export default Livres;
