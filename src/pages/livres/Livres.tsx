@@ -1,100 +1,51 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, {Dispatch, SetStateAction, useContext, useEffect} from 'react';
+import React, {Dispatch, SetStateAction, useContext, useEffect, useState} from 'react';
 import './Livres.css';
 import './../../styles/pages.css';
 // import Header from "../../components/Header";
+import axios from "axios";
+
 
 const Livres = () => {
 
-  // const [result, setResult] = React.useState("");
-  // const [warning, setWarning] = React.useState<string | undefined>();
-
-
+  const Endpoint = "https://jsonplaceholder.typicode.com/users";
+  const [userData, setUserData] = useState([]);
+  const getUserData = async () => {
+    try {
+      const fetchData = await axios.get(Endpoint, {
+        headers: {
+          authorization: "Bearer JWT Token",
+        },
+      });
+      setUserData(fetchData.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
-    
-    });
+    window.addEventListener("load", getUserData);
+    console.log(userData);
+    return () => {
+      window.removeEventListener("load", getUserData);
+    };
+  }, [userData]);
 
   return (
     <>
-      <div className="break"/>
-      <div className="vendor-wrapper">
-        <div className="eq-col-3">
-          <div className="column-header">Livres colors (3L)</div>
-          
-        </div>
-        <div className="eq-col-3">
-          <div className="column-header small-padding">Livres colors (2L)</div>
-        </div>
+      <div className="container mt-5">
+        <h2 className="mb-4">React Read Dynamic List Values Example</h2>
+        {userData.map((item: { id: number, username: string }) => {
+          return (
+            <li className="card p-3 mb-2" key={item.id}>
+              <div className="card-body">
+                <p className="card-text">{item.username}</p>
+              </div>
+            </li>
+          );
+        })}
       </div>
-
-      <div className="break"/>
     </>
   )
 }
-
-
-interface CheckboxProps {
-  label: string
-  value: boolean
-  onChange: Dispatch<SetStateAction<boolean>>
-  className?: string
-}
-
-// interface LinkCheckboxProps {
-//   label: string
-//   link?: string
-//   value: boolean
-//   onChange: Dispatch<SetStateAction<boolean>>
-//   className?: string
-// }
-
-interface NumberInputProps {
-  label: string
-  value: number | undefined
-  image?: string
-  onChange: Dispatch<SetStateAction<number | undefined>>
-  className?: string
-}
-
-export const Checkbox = (props: CheckboxProps) => {
-  return (
-    <div className={props.className}>
-      <label className="checkbox checkbox-text">
-        <input className="checkbox-input" type="checkbox" checked={props.value}
-               onChange={e => props.onChange(e.target.checked)}/>
-        <span>{props.label}</span>
-      </label>
-    </div>
-  );
-}
-
-// const SocketCheckbox = (props: LinkCheckboxProps) => {
-//   const els = props.link?.split("") ?? props.label.split("");
-
-//   return (
-//     <div className={props.className}>
-//       <label className="checkbox">
-//       </label>
-//     </div>
-//   );
-// }
-
-export const NumberInput = (props: NumberInputProps) => {
-  return (
-    <label className="numberinput">
-      <input className="numberinput-input" placeholder="0" type="number" min="0" max="6" value={props.value}
-             onChange={e => {
-               const number = Number(e.target.value);
-               number === 0 ? props.onChange(undefined) : props.onChange(number)
-             }}/>
-      {props.label && <span>&nbsp;{props.label}</span>}
-    </label>
-  );
-}
-
-// function imgFromChar(c: string) {
-//   switch (c) {
-//   }
-// }
 
 export default Livres;
