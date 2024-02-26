@@ -4,9 +4,10 @@ import './Accueil.css';
 import './../../styles/pages.css';
 // import Header from "../../components/Header";
 import peakpx from '../../img/peakpx.jpg';
-// import { List, TextField } from '@mui/material';
 import TextField from "@mui/material/TextField";
 import List from "./../../components/List";
+import Livres from "./../livres/Livres";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Accueil = () => {
 
@@ -26,6 +27,9 @@ const Accueil = () => {
 
   return (
     <>
+      <div>
+        <Livres />
+      </div>
       <div className="main">
         <h1>React Search</h1>
         <div className="search">
