@@ -1,4 +1,7 @@
 .card {
+    width: 100%;
+    min-width: 300px;
+    max-width: 900px;
     display: flex;
     align-items: flex-start; /* Aligner les éléments en haut */
     margin-bottom: 20px;
@@ -11,12 +14,15 @@
   .title {
     font-size: 18px; /* Font plus grande */
     font-weight: bold; /* Gras */
-    margin: 0; /* Supprimer la marge par défaut */
+    margin-left: 20px; 
+    margin-right: 20px;
   }
   
   .author {
-    margin-top: 5px; /* Espacement entre le titre et l'auteur */
-    font-size: 16px; /* Taille de la police pour l'auteur */
+    margin-top: 5px; 
+    font-size: 16px;
+    margin-left: 20px; 
+    margin-right: 20px;
     color: #666; /* Couleur de texte plus claire */
   }
   
