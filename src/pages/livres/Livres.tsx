@@ -2,99 +2,52 @@
 import React, {Dispatch, SetStateAction, useContext, useEffect} from 'react';
 import './Livres.css';
 import './../../styles/pages.css';
+import SearchBar from '../../components/SearchBar';
+import BookCard from '../../components/BookCard';
+
 // import Header from "../../components/Header";
 
-const Livres = () => {
+function Livres(){
+const handleSearch = () => {
+  // rajouté le code pour faire les appelles à l'API 
+  console.log('Search query');
+};
 
-  // const [result, setResult] = React.useState("");
-  // const [warning, setWarning] = React.useState<string | undefined>();
-
-
-  useEffect(() => {
-    
-    });
 
   return (
-    <>
-      <div className="break"/>
-      <div className="vendor-wrapper">
-        <div className="eq-col-3">
-          <div className="column-header">Livres colors (3L)</div>
-          
+        <div className='container'>
+        <div className='header'>
+            <h1 className='title'>Mon Moteur de Recherche</h1>
+            <SearchBar onSearch={handleSearch} />
         </div>
-        <div className="eq-col-3">
-          <div className="column-header small-padding">Livres colors (2L)</div>
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+
+        <div className='booklist'>
+            <BookCard
+                title="Titre du Livre 1"
+                author="Auteur 1"
+                /*coverImage="https://example.com/book1-cover.jpg"*/
+            />
+
+            <BookCard
+                title="Titre du Livre 2"
+                author="Auteur 2"
+                /*coverImage="https://example.com/book2-cover.jpg"*/
+            />  
+            <BookCard
+                title="Titre du Livre 3"
+                author="Auteur 3"
+                /*coverImage="https://example.com/book3-cover.jpg"*/
+            />  
         </div>
-      </div>
-
-      <div className="break"/>
-    </>
-  )
-}
-
-
-interface CheckboxProps {
-  label: string
-  value: boolean
-  onChange: Dispatch<SetStateAction<boolean>>
-  className?: string
-}
-
-// interface LinkCheckboxProps {
-//   label: string
-//   link?: string
-//   value: boolean
-//   onChange: Dispatch<SetStateAction<boolean>>
-//   className?: string
-// }
-
-interface NumberInputProps {
-  label: string
-  value: number | undefined
-  image?: string
-  onChange: Dispatch<SetStateAction<number | undefined>>
-  className?: string
-}
-
-export const Checkbox = (props: CheckboxProps) => {
-  return (
-    <div className={props.className}>
-      <label className="checkbox checkbox-text">
-        <input className="checkbox-input" type="checkbox" checked={props.value}
-               onChange={e => props.onChange(e.target.checked)}/>
-        <span>{props.label}</span>
-      </label>
     </div>
   );
 }
-
-// const SocketCheckbox = (props: LinkCheckboxProps) => {
-//   const els = props.link?.split("") ?? props.label.split("");
-
-//   return (
-//     <div className={props.className}>
-//       <label className="checkbox">
-//       </label>
-//     </div>
-//   );
-// }
-
-export const NumberInput = (props: NumberInputProps) => {
-  return (
-    <label className="numberinput">
-      <input className="numberinput-input" placeholder="0" type="number" min="0" max="6" value={props.value}
-             onChange={e => {
-               const number = Number(e.target.value);
-               number === 0 ? props.onChange(undefined) : props.onChange(number)
-             }}/>
-      {props.label && <span>&nbsp;{props.label}</span>}
-    </label>
-  );
-}
-
-// function imgFromChar(c: string) {
-//   switch (c) {
-//   }
-// }
-
 export default Livres;
